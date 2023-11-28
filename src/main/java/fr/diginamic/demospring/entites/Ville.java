@@ -1,7 +1,15 @@
 package fr.diginamic.demospring.entites;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Ville {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
 	private Integer nombreHabitants;
@@ -14,7 +22,7 @@ public class Ville {
 	}
 
 	public Ville() {
-		super();
+
 	}
 
 	public Integer getId() {
