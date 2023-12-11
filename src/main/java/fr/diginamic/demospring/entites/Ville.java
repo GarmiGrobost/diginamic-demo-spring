@@ -1,5 +1,6 @@
 package fr.diginamic.demospring.entites;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,13 +11,17 @@ public class Ville {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
+	@Column(name = "code_departement")
+	private String codeDepartement;
 	private String nom;
-	private Integer nombreHabitants;
+	@Column(name = "nombre_habitants")
+	private int nombreHabitants;
 
-	public Ville(Integer id, String nom, Integer nombreHabitants) {
+	public Ville(int id, String codeDepartement, String nom, int nombreHabitants) {
 		super();
 		this.id = id;
+		this.codeDepartement = codeDepartement;
 		this.nom = nom;
 		this.nombreHabitants = nombreHabitants;
 	}
@@ -25,12 +30,20 @@ public class Ville {
 
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getCodeDepartement() {
+		return codeDepartement;
+	}
+
+	public void setCodeDepartement(String codeDepartement) {
+		this.codeDepartement = codeDepartement;
 	}
 
 	public String getNom() {
@@ -41,17 +54,18 @@ public class Ville {
 		this.nom = nom;
 	}
 
-	public Integer getNombreHabitants() {
+	public int getNombreHabitants() {
 		return nombreHabitants;
 	}
 
-	public void setNombreHabitants(Integer nombreHabitants) {
+	public void setNombreHabitants(int nombreHabitants) {
 		this.nombreHabitants = nombreHabitants;
 	}
 
 	@Override
 	public String toString() {
-		return "Ville [id=" + id + ", nom=" + nom + ", nombreHabitants=" + nombreHabitants + "]";
+		return "Ville [id=" + id + ", codeDepartement=" + codeDepartement + ", nom=" + nom + ", nombreHabitants="
+				+ nombreHabitants + "]";
 	}
 
 }
